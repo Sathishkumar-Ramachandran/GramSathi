@@ -40,7 +40,7 @@ resource "aws_apprunner_service" "gramsathi_backend" {
         code_configuration_values {
           build_command = "pip install -r requirements.txt"
           port          = "8080"
-          runtime       = "PYTHON_3_11"
+          runtime       = "PYTHON_311"
           start_command = "uvicorn app:app --host 0.0.0.0 --port 8080"
         }
       }

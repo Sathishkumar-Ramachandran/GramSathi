@@ -1,7 +1,7 @@
 import boto3, json
 
-bedrock = boto3.client("bedrock-runtime", region_name="ap-south-1")
-MODEL_ID = "anthropic.claude-3-haiku-20240307-v1:0"
+bedrock = boto3.client("bedrock-runtime", region_name="us-east-1")
+MODEL_ID = "amazon.nova-lite-v1:0"
 
 LANG_INSTRUCTIONS = {
     "hi": "Respond ONLY in Hindi using Devanagari script. Keep language simple and conversational.",
@@ -25,20 +25,16 @@ class BaseAgent:
             f"End with ONE clear action step."
         )
         try:
-            resp = bedrock.invoke_model(
+            resp = bedrock.converse(
                 modelId=MODEL_ID,
-                contentType="application/json",
-                accept="application/json",
-                body=json.dumps({
-                    "anthropic_version": "bedrock-2023-05-31",
-                    "max_tokens": max_tokens,
-                    "temperature": 0.3,
-                    "system": full_system,
-                    "messages": [{"role": "user", "content": message}],
-                }),
+                messages=[{"role": "user", "content": [{"text": message}]}],
+                system=[{"text": full_system}],
+                inferenceConfig={
+                    "maxTokens": max_tokens,
+                    "temperature": 0.3
+                }
             )
-            data = json.loads(resp["body"].read())
-            return data["content"][0]["text"]
+            return resp["output"]["message"]["content"][0]["text"]
         except Exception as e:
             print(f"Bedrock API Error: {str(e)}")
             return self._fallback(message, language)
