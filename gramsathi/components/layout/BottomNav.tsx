@@ -9,8 +9,7 @@ import { useCall } from '@/hooks/useCall'; // will be created next
 export default function BottomNav() {
     const pathname = usePathname();
     const { t } = useLanguage();
-    // We'll mock useCall behavior for now if it doesn't exist
-    const callState = 'idle'; // Let's set it to 'idle' normally, or read from hook later
+    const { callState } = useCall();
 
     const tabs = [
         { key: 'home', path: '/', icon: House },

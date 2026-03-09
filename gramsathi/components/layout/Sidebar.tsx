@@ -4,12 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/hooks/useLanguage';
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher';
+import { useCall } from '@/hooks/useCall';
 import { House, PhoneCall, MessageCircle, BarChart2, Building2, Sprout, TrendingUp, Briefcase, Droplets, Landmark } from 'lucide-react';
 
 export default function Sidebar() {
     const pathname = usePathname();
     const { t } = useLanguage();
-    const callState = 'idle'; // mock for now
+    const { callState } = useCall();
 
     const navItems = [
         { key: 'home', path: '/', icon: House },
