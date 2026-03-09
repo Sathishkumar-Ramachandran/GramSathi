@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://localhost:8000'; // Make sure the backend runs here
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'; // Matches your running uvicorn port
 
 export const callChat = async (message: string, language: string, agent?: string) => {
     const payload = { message, language, agent };
