@@ -1,4 +1,4 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'; // Matches your running uvicorn port
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://cjwrwd75m7.ap-south-1.awsapprunner.com'; // Production App Runner URL
 
 export const callChat = async (message: string, language: string, agent?: string) => {
     const payload = { message, language, agent };
