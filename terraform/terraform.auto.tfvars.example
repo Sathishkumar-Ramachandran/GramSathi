@@ -1,0 +1,2 @@
+github_connection_arn = "REPLACE_WITH_YOUR_AWS_GITHUB_CONNECTION_ARN"
+github_repository_url = "REPLACE_WITH_YOUR_GITHUB_REPOSITORY_URL"

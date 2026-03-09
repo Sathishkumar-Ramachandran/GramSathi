@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary:       #1B5E20;
+  --color-primary-mid:   #2E7D32;
+  --color-primary-light: #4CAF50;
+  --color-surface-green: #F1F8E9;
+  --color-border-green:  #C8E6C9;
+
+  --color-accent-orange: #E65100;
+  --color-accent-amber:  #F57F17;
+  --color-accent-red:    #C62828;
+
+  --color-bg:            #F9FBF7;
+  --color-surface:       #FFFFFF;
+  --color-border:        #E0E0E0;
+
+  --color-text-primary:  #1A1A1A;
+  --color-text-secondary:#5F6368;
+  --color-text-disabled: #BDBDBD;
+
+  --color-call-bg:       #0A1628;
+  --color-call-active:   #D32F2F;
+  --color-aws:           #FF9900;
+}
+
+@theme {
+  --color-primary: #2E7D32;
+  --color-primary-dark: #1B5E20;
+  --color-surface: #F1F8E9;
+  --color-accent: #E65100;
+  --color-call-bg: #0A1628;
+
+  --animate-wave-fast: wave 0.8s ease-in-out infinite alternate;
+  --animate-wave-medium: wave 0.9s ease-in-out infinite alternate;
+  --animate-wave-slow: wave 1.1s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  0%   { transform: scaleY(0.3); }
+  100% { transform: scaleY(1.0); }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+[lang="hi"], [lang="mr"] {
+  font-family: var(--font-noto-hi), var(--font-inter), sans-serif;
+}
+[lang="ta"] {
+  font-family: var(--font-noto-ta), var(--font-inter), sans-serif;
+}
+[lang="te"] {
+  font-family: var(--font-noto-te), var(--font-inter), sans-serif;
+}
+[lang="bn"] {
+  font-family: var(--font-noto-bn), var(--font-inter), sans-serif;
+}
+[lang="en"] {
+  font-family: var(--font-inter), sans-serif;
+}
